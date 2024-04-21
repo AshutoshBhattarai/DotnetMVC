@@ -1,0 +1,33 @@
+﻿@model MVC.Models.AddTodoViewModel
+
+@*
+*@
+@{
+}
+<h1>Edit Todo</h1>
+
+@using (Html.BeginForm("Edit", "Todo", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.title)
+        @Html.TextBoxFor(model => model.title, new { @class = "form-control", placeholder = "Enter Title", required = "required" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.description)
+        @Html.TextBoxFor(model => model.description, new { @class = "form-control", placeholder = "Enter Description", required = "required" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.dueDate)
+        @Html.TextBoxFor(model => model.dueDate, new { @class = "form-control", type = "date", placeholder = "Enter Due Date" })
+    </div>
+    <div class="form-group">
+        <div class="custom-control custom-checkbox custom-control-inline">
+            @Html.CheckBoxFor(model => model.completed, new { @class = "custom-control-input", id = "completed" })
+            @Html.LabelFor(model => model.completed, "Completed", new { @class = "custom-control-label", @for = "completed" })
+        </div>
+    </div>
+    <div class="form-group">
+        <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+    </div>
+
+}

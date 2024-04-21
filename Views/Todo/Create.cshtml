@@ -1,0 +1,30 @@
+﻿@model AddTodoViewModel 
+
+@*
+*@
+@{
+}
+<h1>Create Todo</h1>
+
+@using (Html.BeginForm("Create", "Todo", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="title">Todo Title</label>
+        <input id="title" name="title" placeholder="Enter Title" type="text" required="required" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <input id="description" name="description" placeholder="Enter Description" type="text" required="required" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="dueDate">Date</label>
+        <input id="dueDate" name="dueDate" placeholder="Enter Due Date" type="date" class="form-control">
+    </div>
+    <div class="form-group">
+        <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    
+}
+
+
+

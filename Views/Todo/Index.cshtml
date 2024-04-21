@@ -1,0 +1,45 @@
+﻿@model MVC.Models.AddTodoViewModel
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+
+
+<h1>Todos</h1>
+<div class="d-flex justify-content-end">
+
+    <button class="btn btn-primary">
+        + <a class="text-decoration-none text-white" asp-area="" asp-controller="Todo" asp-action="Create">Create</a>
+    </button>
+
+</div>
+
+<div class="container mt-4">
+    @foreach (var todo in Model.todos)
+    {
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">@todo.title</h5>
+                <p class="card-text">@todo.description</p>
+                <p class="card-text">Due Date: <span class="text-muted">@todo.dueDate.ToString("MMMM dd, yyyy")</span></p>
+                <p class="card-text">Completed: <span class="@(todo.completed ? "text-success" : "text-danger")">@todo.completed.ToString()</span></p>
+                <div class="btn-group" role="group" aria-label="Todo Actions">
+                    <button type="button" class="btn btn-primary">
+                        <a class="text-decoration-none text-white" asp-area="" asp-controller="Todo" asp-action="Edit" asp-route-id="@todo.id">
+                            Edit
+                        </a>
+                    </button>
+                    <button type="button" class="btn btn-danger">
+                        <a class="text-decoration-none text-white" asp-area="" asp-controller="Todo" asp-action="Delete" asp-route-id="@todo.id">
+                            Delete
+                        </a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
